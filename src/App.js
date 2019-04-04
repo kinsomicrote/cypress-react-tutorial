@@ -47,8 +47,10 @@ class App extends Component {
         <div>
           <input
             type="text"
+            autoFocus
             value={this.state.item}
             onChange={this.handleInputChange}
+            placeholder="Enter a task"
           />
         </div>
         <div>
