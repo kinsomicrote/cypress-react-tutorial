@@ -49,25 +49,27 @@ class App extends Component {
             <h2>Add Todo</h2>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-6">
-            <input
-              type="text"
-              autoFocus
-              value={this.state.item}
-              onChange={this.handleInputChange}
-              placeholder="Enter a task"
-              className="form-control"
-            />
+        <form onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="col-md-6">
+              <input
+                type="text"
+                autoFocus
+                value={this.state.item}
+                onChange={this.handleInputChange}
+                placeholder="Enter a task"
+                className="form-control"
+              />
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-md-6">
-            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>
-              Add Task
-            </button>
+          <div className="row">
+            <div className="col-md-6">
+              <button type="submit" className="btn btn-primary">
+                Add Task
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
         <div className="row todo-list">
           <div className="col-md-6">
             <h3>Lists</h3>
