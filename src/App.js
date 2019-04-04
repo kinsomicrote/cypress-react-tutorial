@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
+import './App.css'
 
 let todoCounter = 1;
 
@@ -42,33 +43,55 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <h2>Add Todo</h2>
-        <div>
-          <input
-            type="text"
-            value={this.state.item}
-            onChange={this.handleInputChange}
-          />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <h2>Add Todo</h2>
+          </div>
         </div>
-        <div>
-          <button type="submit" onClick={this.handleSubmit}>
-            Add
-          </button>
+        <div className="row">
+          <div className="col-md-6">
+            <input
+              type="text"
+              autoFocus
+              value={this.state.item}
+              onChange={this.handleInputChange}
+              placeholder="Enter a task"
+              className="form-control"
+            />
+          </div>
         </div>
-        <div>
-          <h3>Lists</h3>
-          <ul>
-            {this.state.list.map(item => {
-              return (
-                <li key={item.id}>
-                  <Todo {...item} removeTodo={this.handleRemove} />
-                </li>
-              );
-            })}
-          </ul>
+        <div className="row">
+          <div className="col-md-6">
+            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>
+              Add Task
+            </button>
+          </div>
         </div>
-      </React.Fragment>
+        <div className="row todo-list">
+          <div className="col-md-6">
+            <h3>Lists</h3>
+            {
+              !this.state.list.length
+              ? (
+                <div>
+                  No task!
+                </div>
+              ) : (
+                <ul>
+                  {this.state.list.map(item => {
+                    return (
+                      <li key={item.id}>
+                        <Todo {...item} removeTodo={this.handleRemove} />
+                      </li>
+                    );
+                  })}
+                </ul>
+              )
+            }
+          </div>
+        </div>
+      </div>
     );
   }
 }
