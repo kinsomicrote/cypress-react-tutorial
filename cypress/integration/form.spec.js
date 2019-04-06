@@ -27,4 +27,26 @@ describe('Form', () => {
       .get('li')
       .should('have.length', 3)
   })
+
+  it('deletes a todo', () => {
+    cy.get('li')
+      .first()
+      .find('.btn-danger')
+      .click()
+      .get('li')
+      .should('have.length', 1)
+  })
+
+  it('deletes all todo', () => {
+    cy.get('li')
+      .first()
+      .find('.btn-danger')
+      .click()
+      .get('li')
+      .first()
+      .find('.btn-danger')
+      .click()
+      .get('.no-task')
+      .should('have.text', 'No task!')
+  })
 })

@@ -76,7 +76,7 @@ class App extends Component {
             {
               !this.state.list.length
               ? (
-                <div>
+                <div className="no-task">
                   No task!
                 </div>
               ) : (
